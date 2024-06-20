@@ -16,10 +16,13 @@ public class Music : MonoBehaviour
     private float _targetVolumeAlert;
     private float _targetVolumeChase;
     public float _volumeMusicFromOptions;
+    public Player _player;
+    
 
     private void Start()
     {
         _stateMachine = FindObjectsOfType<StateMachine>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         _volumeMusicFromOptions = 1f;
     }
 
@@ -30,7 +33,7 @@ public class Music : MonoBehaviour
 
         foreach (var stateMachine in _stateMachine)
         {
-            if (stateMachine._currentState == stateMachine._chaseState)
+            if (stateMachine._currentState == stateMachine._chaseState || stateMachine._currentState == stateMachine._attackState)
             {
                 isChase = true;
                 break;
@@ -39,6 +42,11 @@ public class Music : MonoBehaviour
             {
                 isAlert = true;
             }
+        }
+        if (_player.health <= 0)
+        {
+            isChase = false;
+            isAlert = false;
         }
 
         if (isChase)
