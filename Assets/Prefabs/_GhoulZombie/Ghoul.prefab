@@ -3203,7 +3203,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.10854658, y: 2.3502808, z: 1.1510704}
-  m_LocalScale: {x: 34, y: 34, z: 34}
+  m_LocalScale: {x: 12.84, y: 12.84, z: 12.84}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4467757482891228}
@@ -3433,6 +3433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemySFX: {fileID: 7821289924188698482}
+  stateMachine: {fileID: 7163233095086935298}
 --- !u!135 &118872358149235355
 SphereCollider:
   m_ObjectHideFlags: 0
