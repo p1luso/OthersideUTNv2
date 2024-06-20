@@ -38,7 +38,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         Heal();
-        Debug.Log(_healCDcounter);
     }
     public void TakeDamage(float damage)
     {

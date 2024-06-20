@@ -169,7 +169,7 @@ public class Movement : MonoBehaviour
         {
             _speed = _walkSpeed / 2;
             _controller.height = crouchHeight;
-            _controller.center = new Vector3(0, 0.3f, 0);
+            _controller.center = new Vector3(0, 0, 0);
             crouch = true;
         }
     }
