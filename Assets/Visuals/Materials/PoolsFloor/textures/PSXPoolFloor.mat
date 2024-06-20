@@ -98,5 +98,5 @@ Material:
     m_Colors:
     - _Color: {r: 0.3584906, g: 0.33932596, b: 0.33932596, a: 1}
     - _CubemapColor: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.12578613, g: 0.11985281, b: 0.11985281, a: 1}
+    - _EmissionColor: {r: 0.3584906, g: 0.27154934, b: 0, a: 1}
   m_BuildTextureStacks: []
