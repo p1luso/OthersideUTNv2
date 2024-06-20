@@ -15,12 +15,12 @@ public class Music : MonoBehaviour
     private float _targetVolumeCalm;
     private float _targetVolumeAlert;
     private float _targetVolumeChase;
-    public float _volumeFromOptions;
+    public float _volumeMusicFromOptions;
 
     private void Start()
     {
         _stateMachine = FindObjectsOfType<StateMachine>();
-        _volumeFromOptions = 1f;
+        _volumeMusicFromOptions = 1f;
     }
 
     void Update()
@@ -45,17 +45,17 @@ public class Music : MonoBehaviour
         {
             _targetVolumeCalm = 0;
             _targetVolumeAlert = 0;
-            _targetVolumeChase = _volumeFromOptions;
+            _targetVolumeChase = _volumeMusicFromOptions;
         }
         else if (isAlert)
         {
             _targetVolumeCalm = 0;
-            _targetVolumeAlert = _volumeFromOptions;
+            _targetVolumeAlert = _volumeMusicFromOptions;
             _targetVolumeChase = 0;
         }
         else
         {
-            _targetVolumeCalm = _volumeFromOptions;
+            _targetVolumeCalm = _volumeMusicFromOptions;
             _targetVolumeAlert = 0;
             _targetVolumeChase = 0;
         }

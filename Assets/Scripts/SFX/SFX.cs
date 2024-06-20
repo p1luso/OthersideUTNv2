@@ -14,28 +14,29 @@ public class SFX : MonoBehaviour
     public bool _isFadingOut = false; // Flag to check if fading out is in progress
     private bool _isFadingOutAgitated = false; // Flag to check if fading out agitated sound is in progress
     private float fadeOutTime = 1f; // Time it takes to fade out the sound
-
+    public float _volumeSFXFromOptions;
 
     void Start()
     {
         // Initialization code goes here
+        
     }
 
     public void PlaySoundDeath()
     {
-        _audioSource.volume = 1f;
+        _audioSource.volume = _volumeSFXFromOptions;
 
         _audioSource.PlayOneShot(_deathSound);
     }
     public void PlaySoundHit()
     {
-        _audioSource.volume = 1f;
+        _audioSource.volume = _volumeSFXFromOptions;
         _audioSource.PlayOneShot(_hit);
     }
 
     public void PlaySoundRun()
     {
-        _audioSource.volume = 1f;
+        _audioSource.volume = _volumeSFXFromOptions;
 
         _audioSource.clip = _run;
         _audioSource.loop = true;
@@ -44,14 +45,14 @@ public class SFX : MonoBehaviour
 
     public void PlaySoundAgitated()
     {
-        _audioSourceAgitated.volume = 1f;
+        _audioSourceAgitated.volume = _volumeSFXFromOptions;
         _audioSourceAgitated.clip = _agitated;
         _audioSourceAgitated.Play();
     }
 
     public void PlaySoundWalk()
     {
-        _audioSource.volume = 1f;
+        _audioSource.volume = _volumeSFXFromOptions;
         _audioSource.clip = _walk;
         _audioSource.loop = true;
         _audioSource.Play();
