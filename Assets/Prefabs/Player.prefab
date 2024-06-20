@@ -185,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2325619092330312574}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000037252774, y: -0, z: 0.000000029802347, w: 1}
+  m_LocalRotation: {x: 0.000000003725269, y: -0, z: 0.000000029802125, w: 1}
   m_LocalPosition: {x: 0, y: 0.63, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -290,7 +290,7 @@ Transform:
   m_GameObject: {fileID: 3196323088815551032}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.009, z: 0}
+  m_LocalPosition: {x: 0, y: -0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -321,13 +321,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5836747270846819877}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.0044202404, y: -0.005700528, z: -0.0025171416, w: 0.99997085}
+  m_LocalPosition: {x: 19.2, y: 0.7, z: 67.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4108299738900227276}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.508, y: -0.652, z: -0.286}
 --- !u!108 &1768860052319943402
 Light:
   m_ObjectHideFlags: 0
@@ -337,13 +337,13 @@ Light:
   m_GameObject: {fileID: 5836747270846819877}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9748427, g: 0.78460264, b: 0.33414403, a: 1}
-  m_Intensity: 4
+  m_Color: {r: 0.9764706, g: 0.7410811, b: 0.33333337, a: 1}
+  m_Intensity: 3.4
   m_Range: 20
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 21.80208
+  m_SpotAngle: 44
+  m_InnerSpotAngle: 21
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -379,10 +379,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -457,7 +457,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.6
   m_SlopeLimit: 45
-  m_StepOffset: 1
+  m_StepOffset: 0.77
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -500,7 +500,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -596,7 +596,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -763,6 +763,7 @@ MonoBehaviour:
   _audioSource: {fileID: 5954925760772358555}
   _audioSourceAgitated: {fileID: 3646345978161488700}
   _isFadingOut: 0
+  _volumeSFXFromOptions: 0.15
 --- !u!114 &7423761497607774208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,16 +1038,20 @@ PrefabInstance:
       value: 78.044
       objectReference: {fileID: 0}
     - target: {fileID: 1309712090472958254, guid: a7f008e8a88067b4b9c70d289a47ade6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309712090472958254, guid: a7f008e8a88067b4b9c70d289a47ade6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6260447586577225687, guid: a7f008e8a88067b4b9c70d289a47ade6, type: 3}
       propertyPath: m_Range
-      value: 3.64
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 6260447586577225687, guid: a7f008e8a88067b4b9c70d289a47ade6, type: 3}
       propertyPath: m_Intensity
-      value: 4.42
+      value: 4.67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
