@@ -8,8 +8,7 @@ public class PatrolState : Enemy
     public Transform[] _wayPoints;
     private int _nextWayPoint;
     private NavMeshAgent _agent;
-    private bool isRunningSoundPlaying = false;
-    private bool isWalkingSoundPlaying = false;
+
     protected override void Awake()
     {
         base.Awake();
