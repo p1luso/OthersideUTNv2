@@ -20,7 +20,7 @@ public class SoundCollider : MonoBehaviour
         // Verificar si el objeto que entra en el Collider tiene la etiqueta "Enemy"
         if (other.CompareTag("Player"))
         {
-            if (counter < 3f && stateMachine._currentState== stateMachine._patrolState && _playerMove._isMoving)
+            if (counter < 3f && stateMachine._currentState == stateMachine._patrolState && _playerMove._isMoving)
             {
                 stateMachine.ChangeState(stateMachine._alertState);
             }
