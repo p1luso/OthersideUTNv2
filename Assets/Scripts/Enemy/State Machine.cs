@@ -11,6 +11,7 @@ public class StateMachine : MonoBehaviour
     public Enemy _initialState;
     internal Enemy _currentState;
     public MeshRenderer _meshRenderer;
+    public Enemy lastState;
     
     void Start()
     {
@@ -22,6 +23,7 @@ public class StateMachine : MonoBehaviour
     public void ChangeState(Enemy newState)
     {
         _currentState.enabled = false;
+        lastState = _currentState;
         _currentState = newState;
         _currentState.enabled = true;
 

@@ -10,16 +10,36 @@ public class VisionController : MonoBehaviour
     private NavMeshController _navMeshController;
     public int _viewAngleL = -60;
     public int _viewAngleR = 60;
-    public float _viewDistance = 25f;
+    [SerializeField] float _viewDistance;
+    [SerializeField] float viewDistanceLightOn = 45f;
+    [SerializeField] float viewDistanceLightOff = 20f;
+
     private Movement _playerMovement;
-
-
+    [SerializeField] CandleLight candleLight;
 
     void Awake()
     {
         _navMeshController = GetComponent<NavMeshController>();
         _playerMovement = FindObjectOfType<Movement>();
+        candleLight = FindObjectOfType<CandleLight>();
+        
     }
+
+    void Update()
+    {
+        if (candleLight != null)
+        {
+            if (candleLight.lightOn)
+            {
+                _viewDistance = viewDistanceLightOff;
+            }
+            else
+            {
+                _viewDistance = viewDistanceLightOn;
+            }
+        }
+    }
+
     public bool CanSeePlayer(out RaycastHit hit, bool _lookForPlayer = false)
     {
         Vector3 _origin;
@@ -48,7 +68,7 @@ public class VisionController : MonoBehaviour
                 _direction = _playerMovement.crouch ? _playerCrouch.forward : _playerEyes.forward;
             }
 
-            // Rotate the direction vector by i degrees around the y-axis
+            // Rota el vector de dirección en i grados alrededor del eje y
             _direction = Quaternion.Euler(0, i, 0) * _direction;
 
             if (Physics.Raycast(_origin, _direction, out hit, _viewDistance))
@@ -57,13 +77,11 @@ public class VisionController : MonoBehaviour
                 {
                     playerSeen = true;
                     Debug.DrawRay(_origin, _direction * _viewDistance, Color.green); // Dibuja un raycast verde si el jugador es visto
-
                     break;
                 }
                 else
                 {
                     Debug.DrawRay(_origin, _direction * _viewDistance, Color.red); // Dibuja un raycast rojo si el jugador no es visto
-
                 }
             }
         }

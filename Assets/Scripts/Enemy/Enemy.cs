@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public Color _stateColor;
     protected StateMachine _stateMachine;
     protected NavMeshController _navMeshController;
-    protected SFX _sfx;
+    protected EnemySFX _enemySFX;
     protected Animator _animator;
     protected VisionController _visionController;
     public float _chaseSpeed = 15f;  // Velocidad durante la persecución
@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
     public float _turnSpeed = 250f;
     protected float _damage = 25f;
     protected float _attackCD = 1.5f;
-
     //public bool _pause = false;
     //public bool Pause { get {return _pause;} set {_pause = value;}}
     
@@ -41,7 +40,7 @@ public class Enemy : MonoBehaviour
         _navMeshController = GetComponent<NavMeshController>();
         _visionController = GetComponent<VisionController>();
         _animator = GetComponent<Animator>();
-        _sfx = GetComponent<SFX>();
+        _enemySFX = GetComponent<EnemySFX>();
     }
 
     public enum EnemyAnimatorState

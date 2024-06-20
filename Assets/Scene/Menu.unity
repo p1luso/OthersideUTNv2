@@ -20712,7 +20712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4746b9d176821e847b3e99c562921ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 1134900613}
+  audioMixer: {fileID: 24100000, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
   volumeSlider: {fileID: 1246657723}
   graphicsDropdown: {fileID: 1899171466}
   dropdownValue: 0
@@ -33558,7 +33558,7 @@ AudioSource:
   m_GameObject: {fileID: 1134900607}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
   m_audioClip: {fileID: 8300000, guid: fe95fe6db322afa459d277a0970b4a7b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
