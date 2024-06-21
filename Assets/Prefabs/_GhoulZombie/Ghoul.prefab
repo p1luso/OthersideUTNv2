@@ -1481,7 +1481,7 @@ MonoBehaviour:
   _viewAngleL: -60
   _viewAngleR: 60
   _viewDistance: 25
-  viewDistanceLightOn: 45
+  viewDistanceLightOn: 75
   viewDistanceLightOff: 20
   candleLight: {fileID: 0}
 --- !u!114 &7163233095086935298
@@ -3221,6 +3221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 7163233095086935298}
+  _playerMove: {fileID: 0}
 --- !u!135 &4328862114469880335
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3434,6 +3435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemySFX: {fileID: 7821289924188698482}
   stateMachine: {fileID: 7163233095086935298}
+  _playerMove: {fileID: 0}
 --- !u!135 &118872358149235355
 SphereCollider:
   m_ObjectHideFlags: 0
