@@ -12,10 +12,7 @@ public class Pause : MonoBehaviour
     }
 
     public void InteractableTextShowing()
-    {
-
-        Debug.Log("Esta entrando");
-        
+    {        
         foreach (GameObject go in _enemies)
         {
             go.SetActive(false);
@@ -24,10 +21,7 @@ public class Pause : MonoBehaviour
     }
     public void InteractableTextNotShowing()
     {
-        Debug.Log("No esta entrando");
-
         playerMovement.enabled = true;
-
         foreach (GameObject go in _enemies)
         {
             go.SetActive(true);

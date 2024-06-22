@@ -75,6 +75,7 @@ public class InteractableText : MonoBehaviour
     }
     private IEnumerator FadeOutText()
     {
+        isShowing = false;
         // Obtiene el color actual del texto
         Color textColor = textMeshPro.color;
 
@@ -95,14 +96,13 @@ public class InteractableText : MonoBehaviour
         //Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         //_enemy.Pause = false;
-        isShowing = false;
         _pause.InteractableTextNotShowing();
 
 
         postInteractableText.postInteractionCheck = true;
 
         postInteractableText.ShowText();
-        
+
         yield return null;
     }
 

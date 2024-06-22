@@ -21,7 +21,7 @@ public class SettingsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         // Supongamos que el parámetro expuesto en tu AudioMixer se llama "Volume"
-        audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20); 
+        audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 50f); 
     }
 
     public void SetQuality(int dropdownValue)

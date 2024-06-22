@@ -11,7 +11,8 @@ public class CodigoMenuPausa : MonoBehaviour
     public InteractableText _interactableText;
     public Movement playerMovement;
     private bool Pausa = false;
-    private AudioSource[] _audioSources;
+    public AudioMixer audioMixer;
+    private float _originalVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,6 @@ public class CodigoMenuPausa : MonoBehaviour
         ObjetoMenuPausa.SetActive(false);
         playerInteraction = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>();
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
-        _audioSources = GameObject.FindGameObjectWithTag("Player").GetComponents<AudioSource>();
     }
 
 
@@ -59,11 +59,8 @@ public class CodigoMenuPausa : MonoBehaviour
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        
-        foreach (AudioSource audioSource in _audioSources)
-        {
-            audioSource.UnPause();
-        }
+
+        audioMixer.SetFloat("Volume", _originalVolume);        
     }
 
     public void PauseMenu()
@@ -75,12 +72,8 @@ public class CodigoMenuPausa : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        
-        // Pausar todos los AudioSources
-        foreach (AudioSource audioSource in _audioSources)
-        {
-            audioSource.Pause();
-        }
+        audioMixer.GetFloat("Volume", out _originalVolume);
+        audioMixer.SetFloat("Volume", -80f); // Ajusta el volumen a 0 dB o el valor que desees
     }
 
     public void IrAlMenu()

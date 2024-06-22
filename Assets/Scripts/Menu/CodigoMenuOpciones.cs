@@ -39,7 +39,7 @@ public class Settings : MonoBehaviour
 
     public void SetVolumen (float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        audioMixer.SetFloat("Volume", volume);
     }
 
     public void SetQuality(int qualityIndex)
