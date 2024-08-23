@@ -1151,7 +1151,7 @@ AudioSource:
   m_GameObject: {fileID: 1309486516299566}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
+  OutputAudioMixerGroup: {fileID: -2427551439158342518, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1163,7 +1163,7 @@ AudioSource:
   Priority: 63
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 35.9
+  MaxDistance: 61.09
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1247,7 +1247,7 @@ AudioSource:
   m_GameObject: {fileID: 1309486516299566}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
+  OutputAudioMixerGroup: {fileID: -5894390451253552261, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1259,7 +1259,7 @@ AudioSource:
   Priority: 53
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 35.9
+  MaxDistance: 61.09
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1343,7 +1343,7 @@ AudioSource:
   m_GameObject: {fileID: 1309486516299566}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
+  OutputAudioMixerGroup: {fileID: -5894390451253552261, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1355,7 +1355,7 @@ AudioSource:
   Priority: 55
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 35.9
+  MaxDistance: 61.09
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -3397,8 +3397,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3236554075919736930}
-  - component: {fileID: 7952610467259007555}
   - component: {fileID: 118872358149235355}
+  - component: {fileID: 7952610467259007555}
   m_Layer: 0
   m_Name: Sound SFX Area
   m_TagString: Untagged
@@ -3421,21 +3421,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4467757482891228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7952610467259007555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8562814135167116200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4e4315c909dbf4587ab3c73348762e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemySFX: {fileID: 7821289924188698482}
-  stateMachine: {fileID: 7163233095086935298}
-  _playerMove: {fileID: 0}
 --- !u!135 &118872358149235355
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3455,5 +3440,19 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.68
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7952610467259007555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8562814135167116200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4e4315c909dbf4587ab3c73348762e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemySFX: {fileID: 7821289924188698482}
+  stateMachine: {fileID: 7163233095086935298}

@@ -44,7 +44,7 @@ public class SFX : MonoBehaviour
 
     public void PlaySoundAgitated()
     {
-        _audioSourceAgitated.volume = 1f;
+        _audioSourceAgitated.volume = 0.5f;
         _audioSourceAgitated.clip = _agitated;
         _audioSourceAgitated.Play();
     }

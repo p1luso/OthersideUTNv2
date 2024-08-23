@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +12,9 @@ public class ChaseState : Enemy
     private float _timeChasing = 3f;
     private float _timeChasingCounter = 0f;
 
+    private Vector3 _lastPosition;
+    private float _positionCheckCounter = 0f;
+    private float _positionCheckDuration = 3f;
 
     protected override void Awake()
     {
@@ -29,18 +30,24 @@ public class ChaseState : Enemy
 
     void OnEnable()
     {
+        _enemySFX.PlaySoundEnemyRun();
+        if (_stateMachine.lastState != _stateMachine._chaseState && _stateMachine.lastState != _stateMachine._attackState)
+        {
+            _enemySFX.PlaySoundBreathChase();
+        }
         _chaseTimer = 0;
         _timeChasingCounter = 0;
         _agent.speed = _chaseSpeed;
         _agent.acceleration = _highAcceleration;
         SetAnimator(EnemyAnimatorState.Run);
         _stateColor = Color.red;
+
+        _lastPosition = transform.position;
+        _positionCheckCounter = 0f;
     }
 
     void Update()
     {
-        //if(Pause) return;
-
         RaycastHit hit;
         if (_visionController.CanSeePlayer(out hit, true))
         {
@@ -55,7 +62,6 @@ public class ChaseState : Enemy
             {
                 _isChasing = false;
             }
-
         }
 
         if (_isChasing)
@@ -71,7 +77,7 @@ public class ChaseState : Enemy
             {
                 _agent.speed = _normalSpeed;
                 SetAnimator(EnemyAnimatorState.Walk);
-                _agent.acceleration = _normalAcceleration; // Asume que _normalAcceleration es una variable que has definido
+                _agent.acceleration = _normalAcceleration;
             }
 
             if (_distance <= _attackRange)
@@ -79,6 +85,8 @@ public class ChaseState : Enemy
                 _stateMachine.ChangeState(_stateMachine._attackState);
                 return;
             }
+
+            CheckIfStuck();
         }
         else if (!_isChasing)
         {
@@ -88,7 +96,24 @@ public class ChaseState : Enemy
                 return;
             }
         }
-
     }
 
+    private void CheckIfStuck()
+    {
+        if (Vector3.Distance(transform.position, _lastPosition) < 0.2f)  // Ajusta la distancia mínima
+        {
+            _positionCheckCounter += Time.deltaTime;
+            if (_positionCheckCounter >= _positionCheckDuration)
+            {
+                _stateMachine.ChangeState(_stateMachine._alertState);
+                return;
+            }
+        }
+        else
+        {
+            _positionCheckCounter = 0f;
+        }
+
+        _lastPosition = transform.position;
+    }
 }

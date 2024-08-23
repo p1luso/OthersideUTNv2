@@ -10,9 +10,9 @@ public class CodigoMenuPausa : MonoBehaviour
     public PlayerInteraction playerInteraction;
     public InteractableText _interactableText;
     public Movement playerMovement;
+    public AudioMixer audioMixer; // Referencia al Audio Mixer
     private bool Pausa = false;
-    public AudioMixer audioMixer;
-    private float _originalVolume;
+    private float originalVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,6 @@ public class CodigoMenuPausa : MonoBehaviour
         playerInteraction = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>();
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
     }
-
 
     // Update is called once per frame
     void Update()
@@ -33,8 +32,6 @@ public class CodigoMenuPausa : MonoBehaviour
                 if (Pausa == false)
                 {
                     PauseMenu();
-                    
-
                 }
                 else if (Pausa == true)
                 {
@@ -47,8 +44,8 @@ public class CodigoMenuPausa : MonoBehaviour
                 Resumir();
             }
         }
-
     }
+
     public void Resumir()
     {
         ObjetoMenuPausa.SetActive(false);
@@ -60,7 +57,8 @@ public class CodigoMenuPausa : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        audioMixer.SetFloat("Volume", _originalVolume);        
+        // Restaurar el volumen original del Audio Mixer
+        audioMixer.SetFloat("Volume", originalVolume);
     }
 
     public void PauseMenu()
@@ -72,15 +70,14 @@ public class CodigoMenuPausa : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        audioMixer.GetFloat("Volume", out _originalVolume);
-        audioMixer.SetFloat("Volume", -80f); // Ajusta el volumen a 0 dB o el valor que desees
+
+        // Bajar el volumen del Audio Mixer para "pausar" el sonido
+        audioMixer.GetFloat("Volume", out originalVolume);
+        audioMixer.SetFloat("Volume", -80f); // Baja el volumen, -80 dB es prácticamente silencioso
     }
 
     public void IrAlMenu()
     {
         SceneManager.LoadScene("Menu");
     }
-
 }
-
-

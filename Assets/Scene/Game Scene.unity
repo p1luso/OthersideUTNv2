@@ -17179,6 +17179,7 @@ MonoBehaviour:
   playerInteraction: {fileID: 86989631}
   _interactableText: {fileID: 1201274920}
   playerMovement: {fileID: 86989623}
+  audioMixer: {fileID: 24100000, guid: 78e9f7befab09e141a9237fdfce8adc2, type: 2}
 --- !u!4 &469134449
 Transform:
   m_ObjectHideFlags: 0
@@ -25600,6 +25601,17 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &739744954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8443332514430263031, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
+  m_PrefabInstance: {fileID: 7117256324369537506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &740469850
 GameObject:
   m_ObjectHideFlags: 0
@@ -28933,6 +28945,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3174786697856680368, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
+      propertyPath: enemySFX
+      value: 
+      objectReference: {fileID: 1329837954}
     - target: {fileID: 6324979035933224122, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
       propertyPath: _wayPoints.Array.size
       value: 8
@@ -34374,7 +34390,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60.000004
   orthographic: 0
   orthographic size: 5
@@ -34454,7 +34470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433faa8b758afed4f9295b193c697276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PixelationFactor: 0.22
+  _PixelationFactor: 0.601
   _ColorEmulationMode: 2
   _FullscreenColorDepth: {x: 1366, y: 768, z: 768}
   _FullscreenDitherDepth: {x: 64, y: 64, z: 64}
@@ -45100,6 +45116,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328879582}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1329837954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7821289924188698482, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
+  m_PrefabInstance: {fileID: 851052170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d32b4e30bbed549b6633c4264294f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1331934713
 Mesh:
   m_ObjectHideFlags: 0
@@ -72731,6 +72758,34 @@ PrefabInstance:
       propertyPath: _interactableText
       value: 
       objectReference: {fileID: 1201274920}
+    - target: {fileID: 8045927338207606373, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 739744954}
+    - target: {fileID: 8045927338207606373, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
+      propertyPath: fogColor.b
+      value: 0.05807226
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045927338207606373, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
+      propertyPath: fogColor.g
+      value: 0.05807226
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045927338207606373, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
+      propertyPath: fogColor.r
+      value: 0.14150941
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045927338207606373, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
+      propertyPath: fogDensity
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045927338207606373, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
+      propertyPath: zoomInDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443332514430263031, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySFX : MonoBehaviour
@@ -20,8 +19,10 @@ public class EnemySFX : MonoBehaviour
     public AudioSource _audioSource2; // Audio source for agitated sounds
     public AudioSource _audioSource3;
 
-    private float fadeOutTime = 1f; // Time it takes to fade out the sound
-    private float fadeInTime = 1f; // Time it takes to fade in the sound
+    private float fadeOutTime = 2f; // Time it takes to fade out the sound
+    private float fadeInTime = 2f; // Time it takes to fade in the sound
+
+    private Coroutine currentBreathCoroutine;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class EnemySFX : MonoBehaviour
 
     public void PlaySoundEnemyWalk()
     {
-        StartCoroutine(FadeIn(_audioSource3, enemyWalk, 0.5f, true));
+        StartCoroutine(FadeIn(_audioSource3, enemyWalk, 1f, true));
     }
 
     public void PlaySoundEnemyRun()
@@ -52,22 +53,27 @@ public class EnemySFX : MonoBehaviour
 
     public void PlaySoundBreathSearch()
     {
-        StartCoroutine(FadeIn(_audioSource1, enemyBreathSearch, 1f, true));
+        CrossfadeBreathSound(enemyBreathSearch);
     }
 
     public void PlaySoundBreathPatrol()
     {
-        StartCoroutine(FadeIn(_audioSource1, enemyBreathPatrol, 1f, false));
+        CrossfadeBreathSound(enemyBreathPatrol);
     }
 
     public void PlaySoundBreathChase()
     {
-        StartCoroutine(FadeIn(_audioSource1, enemyBreathChase, 1f, true));
+        CrossfadeBreathSound(enemyBreathChase);
     }
 
     public void PlaySoundAttack()
     {
         StartCoroutine(FadeIn(_audioSource2, enemyAttack, 1f, false));
+    }
+
+    public void PlaySoundAttackClaws()
+    {
+        StartCoroutine(FadeIn(_audioSource2, enemyAttackClaws, 1f, false));
     }
 
     public void StopAudioSource1()
@@ -83,6 +89,40 @@ public class EnemySFX : MonoBehaviour
     public void StopAudioSource3()
     {
         StartCoroutine(FadeOut(_audioSource3));
+    }
+
+    private void CrossfadeBreathSound(AudioClip newClip)
+    {
+        if (currentBreathCoroutine != null)
+        {
+            StopCoroutine(currentBreathCoroutine);
+        }
+        currentBreathCoroutine = StartCoroutine(CrossfadeCoroutine(_audioSource1, newClip, 1f, true));
+    }
+
+    private IEnumerator CrossfadeCoroutine(AudioSource audioSource, AudioClip newClip, float targetVolume, bool loop)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / fadeOutTime;
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.clip = newClip;
+        audioSource.volume = 0;
+        audioSource.loop = loop;
+        audioSource.Play();
+
+        while (audioSource.volume < targetVolume)
+        {
+            audioSource.volume += Time.deltaTime / fadeInTime;
+            yield return null;
+        }
+
+        audioSource.volume = targetVolume;
     }
 
     private IEnumerator FadeIn(AudioSource audioSource, AudioClip clip, float targetVolume, bool loop)

@@ -29,7 +29,7 @@ void Update()
     if (_player != null)
     {
         float damageReceived = 1 - (_player.health / _player.maxHealth);
-        float alphaTarget = damageReceived * 0.8f; // Ajusta este valor para cambiar el alpha máximo
+        float alphaTarget = damageReceived * 0.2f; // Ajusta este valor para cambiar el alpha máximo
 
         if (isTakingDamage)
         {
