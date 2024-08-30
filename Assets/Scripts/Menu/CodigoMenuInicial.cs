@@ -8,21 +8,23 @@ public class CodigoMenuInicial : MonoBehaviour
     public GameObject menuPrincipal;
     public GameObject menuOpciones;
     public float tiempoDeEsperaParaActivar;
+
+    private bool menuOpcionesCon = false;
+    public float menuOpcionesContador = 0f;
     public AudioSource _menuMusic;
 
 
     public void Start()
     {
         menuPrincipal.SetActive(true);
+        menuOpcionesCon = false;
+        menuOpcionesContador = 0f;
         menuOpciones.SetActive(false);
     }
 
     public void EmpezarNivel(string NombreNivel)
     {
         SceneManager.LoadScene("Game Scene");
-
-        
-       
     }  
 
 
@@ -35,12 +37,18 @@ public class CodigoMenuInicial : MonoBehaviour
     public void IrAMenudeOpciones()
     {
         Debug.Log("Clickeadas opciones");
-        animator.SetTrigger("Ir Menu Opciones");
+        menuO
+        menuOpcionesContador += Time.deltaTime;
+        animator.SetBool("Ir Menu Opciones", menuOpcionesCon);
         menuPrincipal.SetActive(false);
-        StartCoroutine(ActivarConDemora(menuOpciones));
-        //menuOpciones.SetActive(true);
+        if(tiempoDeEsperaParaActivar > menuOpcionesContador)
+        {
+            menuOpciones.SetActive(true);
+        }
+        //StartCoroutine(ActivarConDemora(menuOpciones));
+        ///menuOpciones.SetActive(true);
+    } 
 
-    }  
     public void IrAMenuPrincipal()
     {
         animator.SetTrigger("Ir Menu Principal");
@@ -53,12 +61,8 @@ public class CodigoMenuInicial : MonoBehaviour
 
     private IEnumerator ActivarConDemora(GameObject ObjetoActivar)
     {
-
-
         yield return new WaitForSeconds(tiempoDeEsperaParaActivar);
         ObjetoActivar.SetActive(true);
-
-
     }    
 
 
@@ -66,9 +70,6 @@ public class CodigoMenuInicial : MonoBehaviour
     {
         SceneManager.LoadScene("Game Scene");
         Time.timeScale = 1;
-
-
-       
     }
 
 

@@ -25,7 +25,7 @@ public class CodigoMenuPausa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if (!_interactableText.isShowing)
             {
@@ -73,7 +73,7 @@ public class CodigoMenuPausa : MonoBehaviour
 
         // Bajar el volumen del Audio Mixer para "pausar" el sonido
         audioMixer.GetFloat("Volume", out originalVolume);
-        audioMixer.SetFloat("Volume", -80f); // Baja el volumen, -80 dB es prácticamente silencioso
+        audioMixer.SetFloat("Volume", -80f); // Baja el volumen, -80 dB es prï¿½cticamente silencioso
     }
 
     public void IrAlMenu()
