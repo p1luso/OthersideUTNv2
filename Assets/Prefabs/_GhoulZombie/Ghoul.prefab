@@ -1163,7 +1163,7 @@ AudioSource:
   Priority: 63
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 61.09
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1259,7 +1259,7 @@ AudioSource:
   Priority: 53
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 61.09
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1355,7 +1355,7 @@ AudioSource:
   Priority: 55
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 61.09
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -3440,7 +3440,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.68
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7952610467259007555
 MonoBehaviour:

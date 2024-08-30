@@ -8,18 +8,19 @@ public class CodigoMenuInicial : MonoBehaviour
     public GameObject menuPrincipal;
     public GameObject menuOpciones;
     public float tiempoDeEsperaParaActivar;
-
-    private bool menuOpcionesCon = false;
-    public float menuOpcionesContador = 0f;
     public AudioSource _menuMusic;
 
 
     public void Start()
     {
+        Time.timeScale = 1;
+        _menuMusic.volume = 1;
+
         menuPrincipal.SetActive(true);
-        menuOpcionesCon = false;
-        menuOpcionesContador = 0f;
         menuOpciones.SetActive(false);
+        animator.Play("En reposo"); // Reemplaza con el nombre exacto del estado inicial.
+        animator.ResetTrigger("Ir Menu Opciones");
+        animator.ResetTrigger("Ir Menu Principal");
     }
 
     public void EmpezarNivel(string NombreNivel)
@@ -36,18 +37,11 @@ public class CodigoMenuInicial : MonoBehaviour
 
     public void IrAMenudeOpciones()
     {
-        Debug.Log("Clickeadas opciones");
-        menuO
-        menuOpcionesContador += Time.deltaTime;
-        animator.SetBool("Ir Menu Opciones", menuOpcionesCon);
+        Debug.Log("Trigger de animación activado: Ir Menu Opciones");
+        animator.SetTrigger("Ir Menu Opciones");
         menuPrincipal.SetActive(false);
-        if(tiempoDeEsperaParaActivar > menuOpcionesContador)
-        {
-            menuOpciones.SetActive(true);
-        }
-        //StartCoroutine(ActivarConDemora(menuOpciones));
-        ///menuOpciones.SetActive(true);
-    } 
+        menuOpciones.SetActive(true);
+    }
 
     public void IrAMenuPrincipal()
     {
@@ -55,7 +49,6 @@ public class CodigoMenuInicial : MonoBehaviour
         menuOpciones.SetActive(false);
         menuPrincipal.SetActive(true);
         StartCoroutine(ActivarConDemora(menuPrincipal));
-        
     }  
 
 
@@ -63,8 +56,14 @@ public class CodigoMenuInicial : MonoBehaviour
     {
         yield return new WaitForSeconds(tiempoDeEsperaParaActivar);
         ObjetoActivar.SetActive(true);
-    }    
+    }
 
+    private IEnumerator EsperarYActivarOpciones()
+    {
+        yield return new WaitForSeconds(tiempoDeEsperaParaActivar);
+        menuPrincipal.SetActive(false);
+        menuOpciones.SetActive(true);
+    }
 
     public void EmpezarNivel()
     {
@@ -78,14 +77,6 @@ public class CodigoMenuInicial : MonoBehaviour
         Application.Quit();
         Debug.Log("Aqui se Cierra el juego");
     }
-
-
-
-
-
-
-
-
 }
 
 
