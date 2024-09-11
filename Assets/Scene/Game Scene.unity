@@ -41733,6 +41733,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 234506174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1175209019 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5954925760772358555, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
+  m_PrefabInstance: {fileID: 7117256324369537506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1180676110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72750,6 +72755,10 @@ PrefabInstance:
       propertyPath: _canvas
       value: 
       objectReference: {fileID: 2093966744}
+    - target: {fileID: 3774594723953322334, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
+      propertyPath: _audioSourceWalk
+      value: 
+      objectReference: {fileID: 1175209019}
     - target: {fileID: 5862244262302914596, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
       propertyPath: m_Name
       value: Player

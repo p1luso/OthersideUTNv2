@@ -72,7 +72,7 @@ public class PlayerStamina : MonoBehaviour
         isAgitatedSoundPlaying = true;
         _sfx.PlaySoundAgitated();
         yield return new WaitForSeconds(_timeToRecover); // Espera la duración del sonido agitado antes de comenzar a desvanecerlo
-        _sfx.FadeOutAgitatedSound(_sfx._audioSourceAgitated);
+      //  _sfx.FadeOutAgitatedSound(_sfx._audioSourceAgitated);
         isAgitatedSoundPlaying = false;
     }
 }
