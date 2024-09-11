@@ -170,8 +170,8 @@ public class Movement : MonoBehaviour
     //VOLUMEN DE LOS PASOS
           
 
-         if (Input.GetKey(KeyCode.LeftShift))
-
+         //if (Input.GetKey(KeyCode.LeftShift))//comprobar si está corriendo
+        if (_speed>_walkSpeed)
         {//ajustar volumen de pasos al correr
             if (_sfx._audioSourceRun.volume< _currentDir.magnitude)//igualar suavemente volumen de pasos con velocidad de movimiento (de 0 a 1)
 
