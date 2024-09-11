@@ -13,6 +13,7 @@ public class SFX : MonoBehaviour
     public AudioSource _audioSourceWalk; // Audio source for walk sound
     public AudioSource _audioSourceRun; // Audio source for run sound
     public AudioSource _audioSourceAgitated; // Audio source for agitated sounds
+
   /*  public bool _isFadingOut = false; // Flag to check if fading out is in progress
     private bool _isFadingOutAgitated = false; // Flag to check if fading out agitated sound is in progress
     private float fadeOutTime = 1f; // Time it takes to fade out the sound*/
@@ -35,14 +36,14 @@ public class SFX : MonoBehaviour
         _audioSource.PlayOneShot(_hit);
     }
 
-    public void PlaySoundRun()
+   /* public void PlaySoundRun()
     {   _audioSource.clip = _run;
         _audioSource.volume = 1f;
 
         
         _audioSource.loop = true;
         _audioSource.Play();
-    }
+    }*/
 
     public void PlaySoundAgitated()
     {
@@ -67,13 +68,22 @@ public class SFX : MonoBehaviour
         _audioSourceWalk.Play();
     }
 
-        public void InitializeRun()
+    public void InitializeRun()
     {
         _audioSourceRun.volume = 0f;
         _audioSourceRun.clip = _run;
         _audioSourceRun.loop = true;
         _audioSourceRun.Play();
     }
+
+    public void InitializeAgitated()
+    {
+        _audioSourceAgitated.volume = 0f;
+        _audioSourceAgitated.clip = _agitated;
+        _audioSourceAgitated.loop = true;
+        _audioSourceAgitated.Play();
+    }
+
 
 
   /*  public void PlaySoundAttack()

@@ -45,8 +45,8 @@ public class Movement : MonoBehaviour
 
     private PlayerStamina _playerStamina;
     private SFX _sfx;
-    private bool isRunningSoundPlaying = false;
-    private bool isWalkingSoundPlaying = false;
+   /* private bool isRunningSoundPlaying = false;
+    private bool isWalkingSoundPlaying = false;*/
 
     internal bool _isMoving;
 
@@ -176,15 +176,15 @@ public class Movement : MonoBehaviour
             if (_sfx._audioSourceRun.volume< _currentDir.magnitude)//igualar suavemente volumen de pasos con velocidad de movimiento (de 0 a 1)
 
                 {
-                    _sfx._audioSourceRun.volume+=0.05f;
+                    _sfx._audioSourceRun.volume+=4f* Time.deltaTime;
                 }
                 else
                 {
-                    _sfx._audioSourceRun.volume-=0.05f;
+                    _sfx._audioSourceRun.volume-=3f* Time.deltaTime;
                 }
                 
                 
-            _sfx._audioSourceWalk.volume-=0.03f;//desvanecer el sonido de los pasos caminando
+            _sfx._audioSourceWalk.volume-=5f* Time.deltaTime;//desvanecer el sonido de los pasos caminando
         }
 
         else
@@ -192,15 +192,15 @@ public class Movement : MonoBehaviour
             if (_sfx._audioSourceWalk.volume< _currentDir.magnitude)//igualar suavemente volumen de pasos con velocidad de movimiento (de 0 a 1)
 
                 {
-                    _sfx._audioSourceWalk.volume+=0.05f;
+                    _sfx._audioSourceWalk.volume+=4f* Time.deltaTime;
                 }
                 else
                 {
-                    _sfx._audioSourceWalk.volume-=0.05f;
+                    _sfx._audioSourceWalk.volume-=3f* Time.deltaTime;
                 }
                 
                 
-            _sfx._audioSourceRun.volume-=0.03f;//desvanecer el sonido de los pasos corriendo
+            _sfx._audioSourceRun.volume-=5f* Time.deltaTime;//desvanecer el sonido de los pasos corriendo
         }
 
           
