@@ -45,8 +45,8 @@ public class Movement : MonoBehaviour
 
     private PlayerStamina _playerStamina;
     private SFX _sfx;
-    private bool isRunningSoundPlaying = false;
-    private bool isWalkingSoundPlaying = false;
+   /* private bool isRunningSoundPlaying = false;
+    private bool isWalkingSoundPlaying = false;*/
 
     internal bool _isMoving;
 
@@ -59,6 +59,11 @@ public class Movement : MonoBehaviour
         originalCenter = _controller.center.y;
         GameObject _player = GameObject.Find("Player");
         _sfx = _player.GetComponent<SFX>();
+
+        //iniciar sonido de pasos
+        _sfx.InitializeWalk();
+        _sfx.InitializeRun();
+
         
 
     }
@@ -67,6 +72,7 @@ public class Movement : MonoBehaviour
     {
         CameraMovement();
         PlayerMovement();
+      
 
         //if (_cursorLock)
         //{
@@ -137,30 +143,70 @@ public class Movement : MonoBehaviour
         if (_isMoving && Input.GetKey(KeyCode.LeftShift) && !crouch && _playerStamina._canRun == true)
         {
             _speed = _runSpeed;
-            if (!isRunningSoundPlaying)
+            /*if (!isRunningSoundPlaying)
             {
                 _sfx.PlaySoundRun();
                 isRunningSoundPlaying = true;
                 isWalkingSoundPlaying = false;
-            }
+            }*/
         }
         else if (_isMoving && !crouch)
         {
             _speed = _walkSpeed;
-            if (!isWalkingSoundPlaying)
+         
+           /* if (!isWalkingSoundPlaying)
             {
                 _sfx.PlaySoundWalk();
                 isWalkingSoundPlaying = true;
                 isRunningSoundPlaying = false;
-            }
+            }*/
         }
         else
         {
-            _sfx.FadeOutSound(_sfx._audioSource);
+            /*_sfx.FadeOutSound(_sfx._audioSource);
             isRunningSoundPlaying = false;
-            isWalkingSoundPlaying = false;
+            isWalkingSoundPlaying = false;*/
         }
+    //VOLUMEN DE LOS PASOS
+          
+
+         //if (Input.GetKey(KeyCode.LeftShift))//comprobar si está corriendo
+        if (_speed>_walkSpeed)
+        {//ajustar volumen de pasos al correr
+            if (_sfx._audioSourceRun.volume< _currentDir.magnitude)//igualar suavemente volumen de pasos con velocidad de movimiento (de 0 a 1)
+
+                {
+                    _sfx._audioSourceRun.volume+=4f* Time.deltaTime;
+                }
+                else
+                {
+                    _sfx._audioSourceRun.volume-=3f* Time.deltaTime;
+                }
+                
+                
+            _sfx._audioSourceWalk.volume-=5f* Time.deltaTime;//desvanecer el sonido de los pasos caminando
+        }
+
+        else
+        {  //ajustar volumen de pasos al caminar
+            if (_sfx._audioSourceWalk.volume< _currentDir.magnitude)//igualar suavemente volumen de pasos con velocidad de movimiento (de 0 a 1)
+
+                {
+                    _sfx._audioSourceWalk.volume+=4f* Time.deltaTime;
+                }
+                else
+                {
+                    _sfx._audioSourceWalk.volume-=3f* Time.deltaTime;
+                }
+                
+                
+            _sfx._audioSourceRun.volume-=5f* Time.deltaTime;//desvanecer el sonido de los pasos corriendo
+        }
+
+          
     }
+
+
 
     //-------CROUCHING----------
     void PlayerCrouch()
