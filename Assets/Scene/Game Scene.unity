@@ -73344,11 +73344,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8045927338207606373, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
       propertyPath: fogDensity
-      value: 1.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8045927338207606373, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
       propertyPath: zoomInDistance
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8443332514430263031, guid: bec8fde454dc7df43b7d2ddb555a4c1f, type: 3}
       propertyPath: m_Lens.FarClipPlane

@@ -19,8 +19,8 @@ public class EnemySFX : MonoBehaviour
     public AudioSource _audioSource2; // Audio source for agitated sounds
     public AudioSource _audioSource3;
 
-    private float fadeOutTime = 2f; // Time it takes to fade out the sound
-    private float fadeInTime = 2f; // Time it takes to fade in the sound
+    private float fadeOutTime = 1f; // Time it takes to fade out the sound
+    private float fadeInTime = 1f; // Time it takes to fade in the sound
 
     private Coroutine currentBreathCoroutine;
 
