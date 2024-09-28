@@ -169,7 +169,14 @@ public class Movement : MonoBehaviour
         }
     //VOLUMEN DE LOS PASOS
           
-
+    if (crouch)
+    {
+        _sfx._audioSourceWalk.pitch = 0.7f; // Agachado, bajar el pitch
+    }
+    else
+    {
+        _sfx._audioSourceWalk.pitch = 1.0f; // No agachado, pitch normal
+    }
          //if (Input.GetKey(KeyCode.LeftShift))//comprobar si está corriendo
         if (_speed>_walkSpeed)
         {//ajustar volumen de pasos al correr
@@ -202,7 +209,6 @@ public class Movement : MonoBehaviour
                 
             _sfx._audioSourceRun.volume-=5f* Time.deltaTime;//desvanecer el sonido de los pasos corriendo
         }
-
           
     }
 

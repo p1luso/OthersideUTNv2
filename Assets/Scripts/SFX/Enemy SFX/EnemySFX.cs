@@ -31,12 +31,12 @@ public class EnemySFX : MonoBehaviour
 
     public void PlaySoundEnemyWalk()
     {
-        StartCoroutine(FadeIn(_audioSource3, enemyWalk, 1f, true));
+        StartCoroutine(FadeIn(_audioSource3, enemyWalk, .6f, true));
     }
 
     public void PlaySoundEnemyRun()
     {
-        StartCoroutine(FadeIn(_audioSource3, enemyRun, 1f, true));
+        StartCoroutine(FadeIn(_audioSource3, enemyRun, .6f, true));
     }
 
     public void PlaySoundGiveUp()
@@ -53,18 +53,28 @@ public class EnemySFX : MonoBehaviour
 
     public void PlaySoundBreathSearch()
     {
-        CrossfadeBreathSound(enemyBreathSearch);
+        if(_audioSource1.clip != enemyBreathSearch || !_audioSource1.isPlaying)
+        {
+            CrossfadeBreathSound(enemyBreathSearch);
+        }
     }
 
     public void PlaySoundBreathPatrol()
     {
-        CrossfadeBreathSound(enemyBreathPatrol);
+        if (_audioSource1.clip != enemyBreathPatrol || !_audioSource1.isPlaying)
+        {
+            CrossfadeBreathSound(enemyBreathPatrol);
+        }
     }
 
     public void PlaySoundBreathChase()
     {
-        CrossfadeBreathSound(enemyBreathChase);
+        if (_audioSource1.clip != enemyBreathChase || !_audioSource1.isPlaying)
+        {
+            CrossfadeBreathSound(enemyBreathChase);
+        }
     }
+
 
     public void PlaySoundAttack()
     {

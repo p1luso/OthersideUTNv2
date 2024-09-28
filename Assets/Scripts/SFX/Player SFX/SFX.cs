@@ -13,6 +13,8 @@ public class SFX : MonoBehaviour
     public AudioSource _audioSourceWalk; // Audio source for walk sound
     public AudioSource _audioSourceRun; // Audio source for run sound
     public AudioSource _audioSourceAgitated; // Audio source for agitated sounds
+    public AudioSource _audioSourceCrouch; // Audio source for agitated sounds
+
 
   /*  public bool _isFadingOut = false; // Flag to check if fading out is in progress
     private bool _isFadingOutAgitated = false; // Flag to check if fading out agitated sound is in progress
@@ -61,6 +63,14 @@ public class SFX : MonoBehaviour
     }
 
     public void InitializeWalk()
+    {
+        _audioSourceWalk.volume = 0f;
+        _audioSourceWalk.clip = _walk;
+        _audioSourceWalk.loop = true;
+        _audioSourceWalk.Play();
+    }
+
+     public void InitializeCrouch()
     {
         _audioSourceWalk.volume = 0f;
         _audioSourceWalk.clip = _walk;

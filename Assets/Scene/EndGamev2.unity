@@ -9085,18 +9085,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Credits:
-
-    Carolina Roman
-
-    Gabriel Albornoz
-
-    Agustin Vidolini
-
-    Santiago
-    Perez Delfino
-
-    Perpetua Peralta'
+  m_Text: "Cr\xE9ditos:\nCarolina Roman\nGabriel Albornoz\nAgustin Vidolini\nSantiago
+    Perez Delfino\nPerpetua Peralta"
 --- !u!222 &291251025
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34411,7 +34401,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: To be continued...
+  m_Text: "Continuar\xE1..."
 --- !u!222 &1285296079
 CanvasRenderer:
   m_ObjectHideFlags: 0

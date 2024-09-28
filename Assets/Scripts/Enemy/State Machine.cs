@@ -10,7 +10,6 @@ public class StateMachine : MonoBehaviour
     public Enemy _alertState;
     public Enemy _initialState;
     internal Enemy _currentState;
-    public MeshRenderer _meshRenderer;
     public Enemy lastState;
     
     void Start()
@@ -26,8 +25,6 @@ public class StateMachine : MonoBehaviour
         lastState = _currentState;
         _currentState = newState;
         _currentState.enabled = true;
-
-        _meshRenderer.material.color = _currentState._stateColor;
     }
 
 }

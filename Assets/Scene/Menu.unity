@@ -3517,7 +3517,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CREDITS
+  m_Text: "CR\xC9DITOS"
 --- !u!222 &136821523
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5799,7 +5799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close
+  m_text: Cerrar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420f83d2d83b9e047b79b30adff8ea1e, type: 2}
   m_sharedMaterial: {fileID: 6205923049152934858, guid: 420f83d2d83b9e047b79b30adff8ea1e, type: 2}
@@ -11432,7 +11432,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'START
+  m_Text: 'EMPEZAR
 
 '
 --- !u!222 &495816358
@@ -18859,7 +18859,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: EXIT
+  m_Text: SALIR
 --- !u!222 &746143102
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33836,7 +33836,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -35530,7 +35530,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 457237598}
   m_HandleRect: {fileID: 1409143880}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.01
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -54908,7 +54908,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: "Cr\xE9ditos"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420f83d2d83b9e047b79b30adff8ea1e, type: 2}
   m_sharedMaterial: {fileID: 6205923049152934858, guid: 420f83d2d83b9e047b79b30adff8ea1e, type: 2}

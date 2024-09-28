@@ -37,7 +37,7 @@ public class CodigoMenuInicial : MonoBehaviour
 
     public void IrAMenudeOpciones()
     {
-        Debug.Log("Trigger de animación activado: Ir Menu Opciones");
+        Debug.Log("Trigger de animaciÃ³n activado: Ir Menu Opciones");
         animator.SetTrigger("Ir Menu Opciones");
         menuPrincipal.SetActive(false);
         menuOpciones.SetActive(true);

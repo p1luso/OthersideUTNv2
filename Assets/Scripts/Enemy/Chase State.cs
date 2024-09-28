@@ -31,7 +31,7 @@ public class ChaseState : Enemy
     void OnEnable()
     {
         _enemySFX.PlaySoundEnemyRun();
-        if (_stateMachine.lastState != _stateMachine._chaseState && _stateMachine.lastState != _stateMachine._attackState)
+        if (_stateMachine.lastState != _stateMachine._chaseState || _stateMachine.lastState != _stateMachine._attackState)
         {
             _enemySFX.PlaySoundBreathChase();
         }
@@ -100,7 +100,7 @@ public class ChaseState : Enemy
 
     private void CheckIfStuck()
     {
-        if (Vector3.Distance(transform.position, _lastPosition) < 0.2f)  // Ajusta la distancia mínima
+        if (Vector3.Distance(transform.position, _lastPosition) < 0.2f)  // Ajusta la distancia mï¿½nima
         {
             _positionCheckCounter += Time.deltaTime;
             if (_positionCheckCounter >= _positionCheckDuration)
